@@ -7,4 +7,6 @@ PIP LIBRARY : pybricks
 
 $pip install pybricks
 
+Class : PrimeHub
+
 
