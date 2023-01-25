@@ -7,8 +7,7 @@ import lejos.hardware.port.*;
 import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.robotics.SampleProvider;
 
-public class Circle_movement 
-{ 
+public class Circle_movement {
     public static void main(String[] args)
     {
         EV3TouchSensor sensor1 = new EV3TouchSensor(SensorPort.S1);
@@ -57,4 +56,4 @@ public class Circle_movement
        else
            return true;
    }
- }
+}
