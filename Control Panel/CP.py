@@ -86,7 +86,7 @@ def Weather():
     # base_url variable to store url
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
     
-    city_names = ["Sharjah", "Dubai", "Ajman", "Fujairah"]
+    city_names = ["Sharjah"]
 
 
     for i in city_names:
@@ -112,10 +112,17 @@ def Weather():
         
             loop_weather_info = f" [bold red]Temperature[/bold red] (in kelvin unit) = {str(loop_current_temperature)} \n [bold red]atmospheric pressure[/bold red] (in hPa unit) =  {str(loop_current_pressure)} \n [bold red]humidity[/bold red] (in percentage) =  {str(loop_current_humidity)} \n [bold red]description[/bold red] =  {str(loop_weather_description)}"
             
-            print(Panel(f"{loop_weather_info}", title = f"{i}", border_style = "green"))
+            return Panel(f""" _       __           __  __                 _____ __        __            
+| |     / /__  ____ _/ /_/ /_  ___  _____   / ___// /_____ _/ /___  _______
+| | /| / / _ \/ __ `/ __/ __ \/ _ \/ ___/   \__ \/ __/ __ `/ __/ / / / ___/
+| |/ |/ /  __/ /_/ / /_/ / / /  __/ /      ___/ / /_/ /_/ / /_/ /_/ (__  ) 
+|__/|__/\___/\__,_/\__/_/ /_/\___/_/      /____/\__/\__,_/\__/\__,_/____/  
+                                                                           
+                                                                           
+                                                                           {loop_weather_info}""", title = f"{i}", border_style = "green")
     
 
-    
+
 
 
 print(layout)
