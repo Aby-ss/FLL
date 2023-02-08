@@ -5,6 +5,9 @@ from rich.panel import Panel
 from rich.table import Table
 from datetime import datetime
 
+from rich.traceback import install
+install(show_locals=True)
+
 
 import json
 import requests
@@ -16,9 +19,8 @@ layout.split_column(
     Layout(name = "Body")
 )
 
-layout["Body"].split_row(Layout(name = "Box1"), Layout(name = "box2"))
+layout["Body"].split_row(Layout(name = "Box1"), Layout(name = "Box2"))
 
-layout["Header"].size = 3
 
 class Header:
     """Display header with clock."""
@@ -33,7 +35,6 @@ class Header:
         )
         return Panel(grid, style="white on blue")
     
-layout["Header"].update(Header())
 
 functional = "Functional"
 non_functional = "Non Functional"
@@ -73,56 +74,17 @@ Floation 5A:    {functional}
 Floation 5C:    {non_functional}
 Floation 5D:    {functional}""", title = "System Status", border_style = "black")
     
-layout["Box1"].update(Alarm())
 
 def Weather():
 
-    # ---------------------------- -- - -         WORK IN PROGRESS        - -- - ----------------------------
-
-    # ------------------------------------------  weather API  ----------------------------------------------
-
-    api_key = "0c4d43f1d3c12b565156847bb4db7717"
-    
-    # base_url variable to store url
-    base_url = "http://api.openweathermap.org/data/2.5/weather?"
-    
-    city_names = ["Sharjah"]
-
-
-    for i in city_names:
-        loop_API_output = base_url + "appid=" + api_key + "&q=" + i
-    
-        response = requests.get(loop_API_output)
-        
-        x = response.json()
-        
-        if x["cod"] != "404":
-        
-            y = x['main']
-        
-            loop_current_temperature = y["temp"]
-        
-            loop_current_pressure = y["pressure"]
-        
-            loop_current_humidity = y["humidity"]
-        
-            z = x["weather"]
-        
-            loop_weather_description = z[0]["description"]
-        
-            loop_weather_info = f" [bold red]Temperature[/bold red] (in kelvin unit) = {str(loop_current_temperature)} \n [bold red]atmospheric pressure[/bold red] (in hPa unit) =  {str(loop_current_pressure)} \n [bold red]humidity[/bold red] (in percentage) =  {str(loop_current_humidity)} \n [bold red]description[/bold red] =  {str(loop_weather_description)}"
-            
-            return Panel(f""" _       __           __  __                 _____ __        __            
-| |     / /__  ____ _/ /_/ /_  ___  _____   / ___// /_____ _/ /___  _______
-| | /| / / _ \/ __ `/ __/ __ \/ _ \/ ___/   \__ \/ __/ __ `/ __/ / / / ___/
-| |/ |/ /  __/ /_/ / /_/ / / /  __/ /      ___/ / /_/ /_/ / /_/ /_/ (__  ) 
-|__/|__/\___/\__,_/\__/_/ /_/\___/_/      /____/\__/\__,_/\__/\__,_/____/  
-                                                                           
-                                                                           
-                                                                           {loop_weather_info}""", title = f"{i}", border_style = "green")
+    ...
     
 
 
 
+layout["Header"].size = 3
+layout["Box1"].update(Alarm())
+layout["Header"].update(Header())
+layout["Box2"].update(Weather())
 
 print(layout)
