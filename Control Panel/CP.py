@@ -9,7 +9,7 @@ from rich.traceback import install
 install(show_locals=True)
 
 
-import json
+from bs4 import BeautifulSoup
 import requests
 
 
@@ -30,10 +30,10 @@ class Header:
         grid.add_column(justify="center", ratio=1)
         grid.add_column(justify="right")
         grid.add_row(
-            "[b]Rich[/b] Layout application",
+            "[b]Control[/b] Panel application",
             datetime.now().ctime().replace(":", "[blink]:[/]"),
         )
-        return Panel(grid, style="white on blue")
+        return Panel(grid, style="blue on black")
     
 
 functional = "Functional"
@@ -49,42 +49,37 @@ def Alarm():
      
      
      
-Floation 1C:    {non_functional}
-Floation 1A:    {functional}
-Floation 1B:    {non_functional}
-Floation 1D:    {functional}
+Floation 1C:   [b red]{non_functional}[/]
+Floation 1A:   [b green]{functional}[/]
+Floation 1B:   [b red]{non_functional}[/]
+Floation 1D:   [b green]{functional}[/]
 
-Floation 2C:    {non_functional}
-Floation 2B:    {non_functional}
-Floation 2A:    {functional}
-Floation 2D:    {functional}
+Floation 2C:   [b red]{non_functional}[/]
+Floation 2B:   [b red]{non_functional}[/]
+Floation 2A:   [b green]{functional}[/]
+Floation 2D:   [b green]{functional}[/]
 
-Floation 3A:    {functional}
-Floation 3C:    {non_functional}
-Floation 3D:    {functional}
-Floation 3B:    {non_functional}
+Floation 3A:   [b green]{functional}[/]
+Floation 3C:   [b red]{non_functional}[/]
+Floation 3D:   [b green]{functional}[/]
+Floation 3B:   [b red]{non_functional}[/]
 
-Floation 4D:    {functional}
-Floation 4C:    {non_functional}
-Floation 4A:    {functional}
-Floation 4B:    {non_functional}
+Floation 4D:   [b green]{functional}[/]
+Floation 4C:   [b red]{non_functional}[/]
+Floation 4A:   [b green]{functional}[/]
+Floation 4B:   [b red]{non_functional}[/]
 
-Floation 5B:    {non_functional}
-Floation 5A:    {functional}
-Floation 5C:    {non_functional}
-Floation 5D:    {functional}""", title = "System Status", border_style = "black")
+Floation 5B:   [b red]{non_functional}[/]
+Floation 5A:   [b green]{functional}[/]
+Floation 5C:   [b red]{non_functional}[/]
+Floation 5D:   [b green]{functional}[/]""", title = "System Status", border_style = "black")
     
 
-def Weather():
-
-    ...
-    
 
 
 
 layout["Header"].size = 3
 layout["Box1"].update(Alarm())
 layout["Header"].update(Header())
-layout["Box2"].update(Weather())
 
 print(layout)
