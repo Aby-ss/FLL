@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="Weather Analysis">
+    <file>weather_image.jpg</file>
+  </qresource>
+  <qresource prefix="System Status">
+    <file>system_status.jpg</file>
+  </qresource>
+  <qresource prefix="Energy Levels">
+    <file>energy_levels_1.jpg</file>
+    <file>energy_levels_2.jpg</file>
+    <file>energy_levels_3.jpg</file>
+  </qresource>
+</RCC>
