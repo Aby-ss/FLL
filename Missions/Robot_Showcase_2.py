@@ -6,3 +6,4 @@ Motor_C = Motor('C')
 Motor_D = Motor('D')
 Motor_F = Motor('F')
 
+#Movement_pair.move(2, 'rotations')
