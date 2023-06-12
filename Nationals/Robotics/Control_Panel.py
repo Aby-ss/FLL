@@ -67,13 +67,22 @@ class Footer:
         grid.add_column(justify="center", ratio=1)
         grid.add_column(justify="right")
         grid.add_row(
-            "🗺"
+            "🗺",
             "[b]Control[/b] Panel",
             "📶"
         )
         return Panel(grid, style="blue on black")
 
+def hydro_power():
+    #y_values = np.random.uniform(low=0.0, high=5.0, size=10)
+    y_values = [10, 15, 25, 20, 25, 30, 35, 40, 45, 40, 50]    
+    Hydro_chart = asciichartpy.plot(y_values, {"height": 16, "width": 50})
+    hydro_power_panel = Panel(f"{Hydro_chart}", title="Hydro energy", title_align="left", border_style="bold white", box = box.SQUARE)
+    
+    return hydro_power_panel
+
 
 layout["Header"].update(Header())
 layout["Footer"].update(Footer())
+layout["Left_1"].update(hydro_power())
 print(layout)
