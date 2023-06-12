@@ -74,24 +74,21 @@ class Footer:
         return Panel(grid, style="blue on black")
 
 def hydro_power():
-    #y_values = np.random.uniform(low=0.0, high=5.0, size=10)
-    y_values = [10, 15, 25, 20, 25, 30, 35, 40, 45, 40, 50]    
+    y_values = np.random.uniform(low=0.0, high=5.0, size=10)
     Hydro_chart = asciichartpy.plot(y_values, {"height": 16, "width": 50})
     hydro_power_panel = Panel(f"{Hydro_chart}", title="Hydro energy", title_align="left", border_style="bold white", box = box.SQUARE)
     
     return hydro_power_panel
 
 def solar_power():
-    #y_values = np.random.uniform(low=0.0, high=5.0, size=10)
-    y_values = [10, 15, 25, 20, 25, 30, 35, 40, 45, 40, 50]    
+    y_values = np.random.uniform(low=0.0, high=5.0, size=10)
     solar_chart = asciichartpy.plot(y_values, {"height": 16, "width": 50})
     solar_power_panel = Panel(f"{solar_chart}", title="solar energy", title_align="left", border_style="bold white", box = box.SQUARE)
     
     return solar_power_panel
 
 def wind_power():
-    #y_values = np.random.uniform(low=0.0, high=5.0, size=10)
-    y_values = [10, 15, 25, 20, 25, 30, 35, 40, 45, 40, 50]    
+    y_values = np.random.uniform(low=0.0, high=5.0, size=10)
     wind_chart = asciichartpy.plot(y_values, {"height": 16, "width": 50})
     wind_power_panel = Panel(f"{wind_chart}", title="wind energy", title_align="left", border_style="bold white", box = box.SQUARE)
     
