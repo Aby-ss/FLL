@@ -12,7 +12,7 @@ api_key = "0c4d43f1d3c12b565156847bb4db7717"
 # base_url variable to store url
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
  
-city_names = ["Sharjah"]
+city_names = ["London"]
 
 
 for i in city_names:
