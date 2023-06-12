@@ -19,6 +19,9 @@ from rich.prompt import Prompt
 from rich.progress import track
 from rich.progress import Progress
 
+from rich.traceback import install
+install(show_locals=True)
+
 layout = Layout()
 
 layout.split_column(
@@ -42,4 +45,35 @@ layout["Body_Right"].split_column(
     Layout(name = "Right_2")
 )
 
+class Header:
+    """Display header with clock."""
+
+    def __rich__(self) -> Panel:
+        grid = Table.grid(expand=True)
+        grid.add_column(justify="center", ratio=1)
+        grid.add_column(justify="right")
+        grid.add_row(
+            "[b]Control[/b] Panel",
+            datetime.now().ctime().replace(":", "[blink]:[/]"),
+        )
+        return Panel(grid, style="blue on black")
+
+class Footer:
+    """Display footer with data."""
+
+    def __rich__(self) -> Panel:
+        grid = Table.grid(expand=True)
+        grid.add_column(justify="left")
+        grid.add_column(justify="center", ratio=1)
+        grid.add_column(justify="right")
+        grid.add_row(
+            "🗺"
+            "[b]Control[/b] Panel",
+            "📶"
+        )
+        return Panel(grid, style="blue on black")
+
+
+layout["Header"].update(Header())
+layout["Footer"].update(Footer())
 print(layout)
