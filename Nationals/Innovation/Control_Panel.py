@@ -41,7 +41,7 @@ layout["Body_Left"].split_column(
 )
 
 layout["Body_Right"].split_column(
-    Layout(name = "Right_1"),
+    Layout(name = "Right_1", size = 25, ratio = 10),
     Layout(name = "Right_2")
 )
 
