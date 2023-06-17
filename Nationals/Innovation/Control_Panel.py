@@ -83,7 +83,7 @@ def hydro_power():
 def solar_power():
     y_values = np.random.uniform(low=0.0, high=5.0, size=10)
     solar_chart = asciichartpy.plot(y_values, {"height": 16, "width": 50})
-    solar_power_panel = Panel(f"{solar_chart}", title="solar energy", title_align="left", border_style="bold white", box = box.SQUARE)
+    solar_power_panel = Panel(f"{solar_chart}", title="Solar energy", title_align="left", border_style="bold white", box = box.SQUARE)
     
     return solar_power_panel
 
@@ -100,4 +100,5 @@ def wind_power():
 layout["Header"].update(Header())
 layout["Footer"].update(Footer())
 layout["Left_1"].update(hydro_power())
+layout["Left_2"].update(solar_power())
 print(layout)
