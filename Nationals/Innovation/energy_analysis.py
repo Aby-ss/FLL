@@ -22,6 +22,6 @@ from rich.progress import Progress
 from rich.traceback import install
 install(show_locals=True)
 
-import Weather_forecast
+import Weather_forecast as pre_weather
 
-predicted_weather = Weather_forecast
+predicted_panel = Panel(f"[b]Time: [/]{pre_weather.time}\n[b]Dew Point: [/]{pre_weather.dewPoint}\n[b]Temperature: [/]{pre_weather.temp}\n[b]Apparent Temperature: [/]{pre_weather.app_temp}\n[b]Humidity: [/]{pre_weather.humidity}\n[b]Atmsopheric Pressure: [/]{pre_weather.pressure}\n[b]Wind Speed: [/]{pre_weather.wind_speed}\n[b]Wind Bearing: [/]{pre_weather.Wind_bearing}\n[b]Wind Gust: [/]{pre_weather.wind_Gust}\n[b]Cloud Cover: [/]{pre_weather.cloud_Cover}\n[b]Visibility: [/]{pre_weather.visibility}\n[b]UV Index: [/]{pre_weather.uv_Index}\n[b]Summary: [/]{pre_weather.summary}\n[b]Weather Icon: [/]{pre_weather.weather_icon}", title="Predicted Weather", border_style="bold white", box = box.SQUARE)
