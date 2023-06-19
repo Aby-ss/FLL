@@ -21,3 +21,7 @@ from rich.progress import Progress
 
 from rich.traceback import install
 install(show_locals=True)
+
+import Weather_forecast
+
+predicted_weather = Weather_forecast
