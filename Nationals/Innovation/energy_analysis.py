@@ -31,3 +31,38 @@ print(predicted_panel)
 energy_output = pre_weather.temp * (1 - pre_weather.cloud_Cover / 100) * pre_weather.uv_Index
 
 print(Panel.fit(f"Estimated solar panel energy output: {energy_output} units", border_style="bold green", box = box.SQUARE))
+
+# Set a threshold for low output
+low_output_threshold = 50  # Adjust this value as needed
+
+# Check if the output is low
+if energy_output < low_output_threshold:
+    # Create an alert panel
+    alert_text = "Low solar panel output!"
+    alert_panel = Panel.fit(alert_text, title="Alert", style="bold red", box=box.SQUARE)
+    
+    # Print the alert panel
+    console = Console()
+    console.print(alert_panel)
+    
+# Calculate wind turbine energy output
+rotor_diameter = 50  # Adjust this value for your wind turbine
+air_density = 1.225  # Adjust this value for your location
+wind_speed = pre_weather.wind_speed  # Assuming wind speed is provided in the pre_weather data
+
+# Calculate wind power using the formula: P = 0.5 * air_density * A * v^3
+wind_power = 0.5 * air_density * np.pi * (rotor_diameter/2)**2 * wind_speed**3
+print(Panel.fit(f"{wind_power}", title="Wind Power", border_style="bold white"))
+
+# Set a threshold for low output
+low_output_threshold = 10000000  # Adjust this value as needed
+
+# Check if the output is low
+if wind_power < low_output_threshold:
+    # Create an alert panel
+    alert_text = "Low wind turbine output!"
+    alert_panel = Panel.fit(alert_text, title="Alert", style="bold red", box=box.SQUARE)
+    
+    # Print the alert panel
+    console = Console()
+    console.print(alert_panel)
