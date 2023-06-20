@@ -30,4 +30,4 @@ print(predicted_panel)
 # Calculate solar panel energy output
 energy_output = pre_weather.temp * (1 - pre_weather.cloud_Cover / 100) * pre_weather.uv_Index
 
-print(f"Estimated solar panel energy output: {energy_output} units")
+print(Panel.fit(f"Estimated solar panel energy output: {energy_output} units", border_style="bold green", box = box.SQUARE))
