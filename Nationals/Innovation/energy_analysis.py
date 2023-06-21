@@ -44,6 +44,12 @@ if energy_output < low_output_threshold:
     # Print the alert panel
     console = Console()
     console.print(alert_panel)
+
+# Check if the output is sufficient
+if energy_output > low_output_threshold:
+    # Create an alert panel
+    alert_text = "Sufficient solar panel output 📈"
+    alert_panel = Panel.fit(alert_text, title="Solar Panel Output", style="bold green", box=box.SQUARE)
     
 # Calculate wind turbine energy output
 rotor_diameter = 50  # Adjust this value for your wind turbine
@@ -55,13 +61,23 @@ wind_power = 0.5 * air_density * np.pi * (rotor_diameter/2)**2 * wind_speed**3
 print(Panel.fit(f"{wind_power}", title="Wind Power", border_style="bold white"))
 
 # Set a threshold for low output
-low_output_threshold = 10000000  # Adjust this value as needed
+low_output_threshold = 1000000  # Adjust this value as needed
 
 # Check if the output is low
 if wind_power < low_output_threshold:
     # Create an alert panel
     alert_text = "Low wind turbine output!"
     alert_panel = Panel.fit(alert_text, title="Alert", style="bold red", box=box.SQUARE)
+    
+    # Print the alert panel
+    console = Console()
+    console.print(alert_panel)
+    
+# Check if the output is low
+if wind_power > low_output_threshold:
+    # Create an alert panel
+    alert_text = "Sufficient wind turbine output 📈"
+    alert_panel = Panel.fit(alert_text, title="Wid Power Output", style="bold green", box=box.SQUARE)
     
     # Print the alert panel
     console = Console()
