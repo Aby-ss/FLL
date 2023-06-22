@@ -46,6 +46,11 @@ layout["Body_Right"].split_column(
     Layout(name = "Right_2")
 )
 
+layout["Right_2"].split(
+    Layout(name="R2_1"),
+    Layout(name="R2_2")
+)
+
 layout["Left_1"].split_row(
     Layout(name="L1_1"),
     Layout(name="L1_2", ratio = 1)
