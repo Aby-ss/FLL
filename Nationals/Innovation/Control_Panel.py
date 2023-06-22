@@ -94,12 +94,19 @@ def wind_power():
     
     return wind_power_panel
 
+def WeatherAnalysis():
+    import energy_analysis as EA
+    return EA.predicted_panel
+
+def SolarOutput():
+    import energy_analysis as EA
+    return Panel(f"Estimated solar panel energy output: {EA.energy_output} units\n")
 
 
 
 layout["Header"].update(Header())
 layout["Footer"].update(Footer())
-layout["Left_1"].update(hydro_power())
+layout["Left_1"].update(WeatherAnalysis())
 layout["Left_2"].update(solar_power())
 layout["Right_2"].update(wind_power())
 print(layout)

@@ -30,7 +30,8 @@ print(predicted_panel)
 # Calculate solar panel energy output
 energy_output = pre_weather.temp * (1 - pre_weather.cloud_Cover / 100) * pre_weather.uv_Index
 
-print(Panel.fit(f"Estimated solar panel energy output: {energy_output} units", border_style="bold green", box = box.SQUARE))
+Estimate_solar_output = Panel.fit(f"Estimated solar panel energy output: {energy_output} units", border_style="bold green", box = box.SQUARE)
+print(Estimate_solar_output)
 
 # Set a threshold for low output
 low_output_threshold = 50  # Adjust this value as needed
