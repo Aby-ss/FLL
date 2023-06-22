@@ -44,13 +44,13 @@ layout["Body_Left"].split_column(
 )
 
 layout["Body_Right"].split_column(
-    Layout(name = "Right_1", size = 25, ratio = 10),
+    Layout(name = "Right_1", size = 33, ratio = 10),
     Layout(name = "Right_2")
 )
 
 layout["Right_2"].split(
-    Layout(name="R2_1"),
-    Layout(name="R2_2")
+    Layout(name="R2_1", size=3),
+    Layout(name="R2_2", size=3)
 )
 
 layout["Left_1"].split_row(
@@ -181,9 +181,22 @@ def wind_alerts():
         
 
         return alert_panel
+
+def voltage_display():
+    
+    title = """  _   __     ____                                   __
+ | | / /__  / / /____ ____ ____   ___  _______  ___/ /
+ | |/ / _ \/ / __/ _ `/ _ `/ -_) / _ \/ __/ _ \/ _  / 
+ |___/\___/_/\__/\_,_/\_, /\__/ / .__/_/  \___/\_,_(_)
+                     /___/     /_/                    """
+    
+    voltage_panel = Panel(f"{title}\n\nSolar Panels = [b green]4V[/]\nWind Turbines = [b red]2.5V[/]\nWater Turbines = [b green]3.5V[/]\n\n\n\n🚨 Alert: Enhanced Performance of Solar Panels and Water Turbines 🚨\n\n\nDue to prevailing weather conditions or unforeseen issues, we would like to inform you that the performance of our solar panels and water turbines has been notably better than that of our wind turbines. This temporary situation may affect the energy generation balance. We are actively investigating and resolving the matter. Stay tuned for updates! Thank you for your understanding. ⚡️🌊🌞", title="Voltage readings", border_style = "bold white", box = box.SQUARE)
+    
+    return voltage_panel
     
 layout["Header"].update(Header())
 layout["Footer"].update(Footer())
+layout["Right_1"].update(voltage_display())
 layout["L1_1"].update(WeatherAnalysis())
 layout["L1_2"].update(SolarOutput())
 layout["Left_2"].update(energy_ouput_levels())
