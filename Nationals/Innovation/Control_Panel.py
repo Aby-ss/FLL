@@ -36,13 +36,18 @@ layout["Body"].split_row(
 )
 
 layout["Body_Left"].split_column(
-    Layout(name = "Left_1"),
+    Layout(name = "Left_1", ratio = 1, size = 16),
     Layout(name = "Left_2")
 )
 
 layout["Body_Right"].split_column(
     Layout(name = "Right_1", size = 25, ratio = 10),
     Layout(name = "Right_2")
+)
+
+layout["Left_1"].split_row(
+    Layout(name="L1_1"),
+    Layout(name="L1_2", ratio = 1)
 )
 
 class Header:
@@ -100,13 +105,14 @@ def WeatherAnalysis():
 
 def SolarOutput():
     import energy_analysis as EA
-    return Panel(f"Estimated solar panel energy output: {EA.energy_output} units\n")
+    return Panel(f"Estimated solar panel energy output: {EA.energy_output} units", title="Solar [Estimated] energy output", border_style="bold white", box = box.SQUARE)
 
 
 
 layout["Header"].update(Header())
 layout["Footer"].update(Footer())
-layout["Left_1"].update(WeatherAnalysis())
+layout["L1_1"].update(WeatherAnalysis())
+layout["L1_2"].update(SolarOutput())
 layout["Left_2"].update(solar_power())
 layout["Right_2"].update(wind_power())
 print(layout)
