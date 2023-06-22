@@ -3,6 +3,7 @@ import asciichartpy
 import csv
 import numpy as np
 import time
+import math
 from time import sleep
 
 from rich import print
@@ -107,12 +108,24 @@ def SolarOutput():
     import energy_analysis as EA
     return Panel(f"Estimated solar panel energy output: {EA.energy_output} units", title="Solar [Estimated] energy output", border_style="bold white", box = box.SQUARE)
 
+def energy_ouput_levels():
+    Solar = []
+    Helical = []
+    Wind = []
 
+    for i in range(60):
+        Solar.append(15 * math.cos(i * ((math.pi * 2) / 60)))  # values range from -15 to +15
+        Helical.append(10 * math.sin(i * ((math.pi * 4) / 60)))  # values range from -10 to +10
+        Wind.append(8 * math.sin(i * ((math.pi * 8) / 60)))  # values range from -8 to +8
+
+    data = [Solar, Helical, Wind]
+    graph = asciichartpy.plot(data, {'height': 15, 'width': 10})  # rescales the graph to ±3 lines
+    return Panel(graph, border_style = "Bold white", box = box.SQUARE, title = "Energy output Analysis", title_align="left")
 
 layout["Header"].update(Header())
 layout["Footer"].update(Footer())
 layout["L1_1"].update(WeatherAnalysis())
 layout["L1_2"].update(SolarOutput())
-layout["Left_2"].update(solar_power())
+layout["Left_2"].update(energy_ouput_levels())
 layout["Right_2"].update(wind_power())
 print(layout)

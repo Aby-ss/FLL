@@ -5,7 +5,7 @@ from rich.pretty import pprint
 conn = http.client.HTTPSConnection("api.ambeedata.com")
 
 headers = {
-    'x-api-key': "0f224f1547e7f994559ef153134453aecf2a16904e9fbd9bf111fe4ed8434dad",
+    'x-api-key': "7eafc9fb1393d7456d0778e8bde486f02bcd494f87792146729bf4e61062ae36",
     'Content-type': "application/json"
 }
 
