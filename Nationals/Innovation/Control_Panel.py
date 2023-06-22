@@ -23,6 +23,8 @@ from rich.progress import Progress
 from rich.traceback import install
 install(show_locals=True)
 
+import Weather_forecast as pre_weather
+
 layout = Layout()
 
 layout.split_column(
@@ -128,12 +130,57 @@ def energy_ouput_levels():
     return Panel(graph, border_style = "Bold white", box = box.SQUARE, title = "Energy output Analysis", title_align="left")
 
 def solar_alerts():
-    import energy_analysis as EA
-    EA.solar_analysis()
+    # Set a threshold for low output
+    low_output_threshold = 50  # Adjust this value as needed
+    
+    energy_output = pre_weather.temp * (1 - pre_weather.cloud_Cover / 100) * pre_weather.uv_Index
+
+    # Check if the output is low
+    if energy_output < low_output_threshold:
+        # Create an alert panel
+        alert_text = "Low solar panel output!"
+        alert_panel = Panel(alert_text, title="Alert", style="bold red", box=box.SQUARE)
+        
+
+        return alert_panel
+
+    # Check if the output is sufficient
+    if energy_output > low_output_threshold:
+        # Create an alert panel
+        alert_text = "Sufficient solar panel output 📈"
+        alert_panel = Panel(alert_text, title="Solar Panel Output", style="bold green", box=box.SQUARE)
+        
+        return alert_panel
 
 def wind_alerts():
-    import energy_analysis as EA
-    EA.Wind_analysis()
+    # Calculate wind turbine energy output
+    rotor_diameter = 50  # Adjust this value for your wind turbine
+    air_density = 1.225  # Adjust this value for your location
+    wind_speed = pre_weather.wind_speed  # Wind speed is provided in the pre_weather data
+    
+    wind_power = 0.5 * air_density * np.pi * (rotor_diameter/2)**2 * wind_speed**3
+
+
+    # Set a threshold for low output
+    low_output_threshold = 1000000  # Adjust this value as needed
+
+    # Check if the output is low
+    if wind_power < low_output_threshold:
+        # Create an alert panel
+        alert_text = "Low wind turbine output!"
+        alert_panel = Panel(alert_text, title="Alert", style="bold red", box=box.SQUARE)
+        
+
+        return alert_panel
+        
+    # Check if the output is low
+    if wind_power > low_output_threshold:
+        # Create an alert panel
+        alert_text = "Sufficient wind turbine output 📈"
+        alert_panel = Panel(alert_text, title="Wid Power Output", style="bold green", box=box.SQUARE)
+        
+
+        return alert_panel
     
 layout["Header"].update(Header())
 layout["Footer"].update(Footer())

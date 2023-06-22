@@ -39,6 +39,8 @@ def solar_analysis():
     # Set a threshold for low output
     low_output_threshold = 50  # Adjust this value as needed
     
+    energy_output = pre_weather.temp * (1 - pre_weather.cloud_Cover / 100) * pre_weather.uv_Index
+    
     # Check if the output is low
     if energy_output < low_output_threshold:
         # Create an alert panel
@@ -72,6 +74,8 @@ def Wind_analysis():
     rotor_diameter = 50  # Adjust this value for your wind turbine
     air_density = 1.225  # Adjust this value for your location
     wind_speed = pre_weather.wind_speed  # Wind speed is provided in the pre_weather data
+    
+    wind_power = 0.5 * air_density * np.pi * (rotor_diameter/2)**2 * wind_speed**3
 
 
     # Set a threshold for low output
