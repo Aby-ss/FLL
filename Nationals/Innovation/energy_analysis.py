@@ -45,8 +45,7 @@ def solar_analysis():
         alert_text = "Low solar panel output!"
         alert_panel = Panel.fit(alert_text, title="Alert", style="bold red", box=box.SQUARE)
         
-        # Print the alert panel
-        console = Console()
+
         return alert_panel
 
     # Check if the output is sufficient
@@ -59,15 +58,21 @@ def solar_analysis():
         
 solar_analysis()
 
+# Calculate wind turbine energy output
+rotor_diameter = 50  # Adjust this value for your wind turbine
+air_density = 1.225  # Adjust this value for your location
+wind_speed = pre_weather.wind_speed  # Wind speed is provided in the pre_weather data
+    
+# Calculate wind power using the formula: P = 0.5 * air_density * A * v^3
+wind_power = 0.5 * air_density * np.pi * (rotor_diameter/2)**2 * wind_speed**3
+print(Panel.fit(f"{wind_power}", title="Wind Power", border_style="bold white"))
+
 def Wind_analysis():    
     # Calculate wind turbine energy output
     rotor_diameter = 50  # Adjust this value for your wind turbine
     air_density = 1.225  # Adjust this value for your location
     wind_speed = pre_weather.wind_speed  # Wind speed is provided in the pre_weather data
 
-    # Calculate wind power using the formula: P = 0.5 * air_density * A * v^3
-    wind_power = 0.5 * air_density * np.pi * (rotor_diameter/2)**2 * wind_speed**3
-    print(Panel.fit(f"{wind_power}", title="Wind Power", border_style="bold white"))
 
     # Set a threshold for low output
     low_output_threshold = 1000000  # Adjust this value as needed
@@ -78,8 +83,7 @@ def Wind_analysis():
         alert_text = "Low wind turbine output!"
         alert_panel = Panel.fit(alert_text, title="Alert", style="bold red", box=box.SQUARE)
         
-        # Print the alert panel
-        console = Console()
+
         return alert_panel
         
     # Check if the output is low
@@ -88,8 +92,7 @@ def Wind_analysis():
         alert_text = "Sufficient wind turbine output 📈"
         alert_panel = Panel.fit(alert_text, title="Wid Power Output", style="bold green", box=box.SQUARE)
         
-        # Print the alert panel
-        console = Console()
+
         return alert_panel
 
 Wind_analysis()
