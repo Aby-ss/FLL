@@ -131,11 +131,15 @@ def solar_alerts():
     import energy_analysis as EA
     EA.solar_analysis()
 
+def wind_alerts():
+    import energy_analysis as EA
+    EA.Wind_analysis()
+    
 layout["Header"].update(Header())
 layout["Footer"].update(Footer())
 layout["L1_1"].update(WeatherAnalysis())
 layout["L1_2"].update(SolarOutput())
 layout["Left_2"].update(energy_ouput_levels())
 layout["R2_1"].update(solar_alerts())
-layout["R2_2"].update()
+layout["R2_2"].update(wind_alerts())
 print(layout)
