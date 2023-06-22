@@ -127,10 +127,15 @@ def energy_ouput_levels():
     graph = asciichartpy.plot(data, {'height': 15, 'width': 10})  # rescales the graph to ±3 lines
     return Panel(graph, border_style = "Bold white", box = box.SQUARE, title = "Energy output Analysis", title_align="left")
 
+def solar_alerts():
+    import energy_analysis as EA
+    EA.solar_analysis()
+
 layout["Header"].update(Header())
 layout["Footer"].update(Footer())
 layout["L1_1"].update(WeatherAnalysis())
 layout["L1_2"].update(SolarOutput())
 layout["Left_2"].update(energy_ouput_levels())
-layout["Right_2"].update(wind_power())
+layout["R2_1"].update(solar_alerts())
+layout["R2_2"].update()
 print(layout)
