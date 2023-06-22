@@ -190,7 +190,7 @@ def voltage_display():
  |___/\___/_/\__/\_,_/\_, /\__/ / .__/_/  \___/\_,_(_)
                      /___/     /_/                    """
     
-    voltage_panel = Panel(f"{title}\n\nSolar Panels = [b green]4V[/]\nWind Turbines = [b red]2.5V[/]\nWater Turbines = [b green]3.5V[/]\n\n\n\n🚨 Alert: Enhanced Performance of Solar Panels and Water Turbines 🚨\n\n\nDue to prevailing weather conditions or unforeseen issues, we would like to inform you that the performance of our solar panels and water turbines has been notably better than that of our wind turbines. This temporary situation may affect the energy generation balance. We are actively investigating and resolving the matter. Stay tuned for updates! Thank you for your understanding. ⚡️🌊🌞", title="Voltage readings", border_style = "bold white", box = box.SQUARE)
+    voltage_panel = Panel(f"{title}\n\nSolar Panels = [b green]4V[/]\nWind Turbines = [b red]2.5V[/]\nWater Turbines = [b green]3.5V[/]\n\n\n\n🚨 Alert: Enhanced Performance of Solar Panels and Water Turbines 🚨\n\n\nDue to prevailing weather conditions or unforeseen issues, we would like to inform you that the performance of our solar panels and water turbines has been notably better than that of our wind turbines. This temporary situation may affect the energy generation balance. We are actively investigating and resolving the matter. Stay tuned for updates! Thank you for your understanding. ⚡️🌊🌞111111", title="Voltage readings", border_style = "bold white", box = box.SQUARE)
     
     return voltage_panel
     
